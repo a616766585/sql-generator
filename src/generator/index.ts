@@ -90,8 +90,8 @@ function replaceParams(
   if (!sql) {
     return "";
   }
-  // 动态、静态参数结合，且优先用静态参数
-  params = { ...(params ?? {}), ...currentNode.params };
+  // 动态、静态参数结合，且优先用动态参数
+  params = { ...(currentNode.params ?? {}), ...params };
   if (invokeTreeNode) {
     invokeTreeNode.params = params;
   }
